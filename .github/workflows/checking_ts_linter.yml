@@ -1,0 +1,35 @@
+name: Checking_ts_linter
+#run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+env:
+  MY_VARIABLE: "im Variable"
+  GIT_VAR    : "im git var ${{ github.sha }}"
+on: [push]
+jobs:
+  checking_ts:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Pring wordlo hell
+      run: echo "Wordlo hell!"
+      
+    - name: show sha
+      run: |
+        echo "One str"
+        echo "Two str: ${{ env.GIT_VAR }}"
+        
+    - name: show folder # не заработает так как нужно сначала git clone
+      run: ls -la
+      
+    - name: Git clone
+      uses: actions/checkout@v1
+      
+    - name: show folder again
+      run: ls -la
+      
+  ts_linter:
+    runs-on: ubuntu-latest
+    needs: [checking_ts] # запуск посел первого теста
+    env:
+      MY_VAR_LOCAL: "im Variable local"
+    steps:
+    - name: Pring wordlo hell
+      run: echo "Wordlo hell!"

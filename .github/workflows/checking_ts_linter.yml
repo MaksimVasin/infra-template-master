@@ -20,7 +20,5 @@ jobs:
     - name: Git clone
       uses: actions/checkout@v1
       
-
-      
-    - name: show folder
+    - name: compiled files
       run: ls -la | grep .ts

@@ -7,4 +7,3 @@ import '@testing-library/jest-dom';
 function f(a = 0, b: number) {}
 
 Array(0, 1, 2);
-new Array(0, 1, 2);

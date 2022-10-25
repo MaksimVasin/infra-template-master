@@ -36,7 +36,7 @@ jobs:
         #echo $?
         
     - if: ${{ github.ref != '' }}
-      run: echo ${ github.ref }
+      run: ${ github.ref }
       
   build_release:
     if: ${{ github.ref != '' }}

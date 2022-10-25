@@ -20,6 +20,9 @@ jobs:
     - name: Git clone
       uses: actions/checkout@v1
       
+    - name: nmp i
+      run: npm i
+      
     - name: Check ts
       run: npm run ts
     

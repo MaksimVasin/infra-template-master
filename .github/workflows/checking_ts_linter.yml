@@ -1,8 +1,8 @@
 name: Checking_ts_linter
 #run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-env:
-  MY_VARIABLE: "im Variable"
-  GIT_VAR    : "im git var ${{ github.sha }}"
+#env:
+#  MY_VARIABLE: "im Variable"
+#  GIT_VAR    : "im git var ${{ github.sha }}"
 on: [push]
 jobs:
   checking_ts:
@@ -12,5 +12,13 @@ jobs:
     - name: Git clone
       uses: actions/checkout@v1
       
-    - name: show folder again
-      run: ls -la
+    - name: install nvm
+      run: |
+        sudo apt install curl
+        curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+        source ~/.bashrc
+        nvm install 16.16.0
+        node -v
+      
+    - name: show folder
+      run: ls -la | grep .ts

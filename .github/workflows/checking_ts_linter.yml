@@ -39,5 +39,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: [checking]
     steps:
-    - name: Pring wordlo hell
-      run: echo "Wordlo hell!"
+    - name: try post
+      uses: satak/webrequest-action@v1.2.4
+      with:
+        url: https://api.tracker.yandex.net/v2/issues/HOMEWORKSHRI-143
+        method: PATCH
+        payload: '{"summary": "Кросс-проверка Инфраструктура — Васин Максим", "description": "Описание из экшанов"}'
+        headers: '{"Authorization": "OAuth y0_AgAAAAANPDNaAAiGogAAAADSOoNbmLy5EvCuSOugQ7c9_wH_LdbgQZQ", "X-Org-ID": "7526988"}'

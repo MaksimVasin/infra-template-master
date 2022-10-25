@@ -1,6 +1,7 @@
 name: Checking_ts_linter
 env: 
   CAN_BUILD: false;
+  TAG_NAME: A;
 #  GIT_VAR    : "im git var ${{ github.sha }}"
 on: [push]
 jobs:
@@ -28,6 +29,9 @@ jobs:
     - name: Check linter
       run: npm run lint
       #  nvm install 16.16.0
+      
+    - name: Can build
+      run: ${{ CAN_BUILD }} = true
       
   build_release:
     runs-on: ubuntu-latest

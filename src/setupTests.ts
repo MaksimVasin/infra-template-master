@@ -4,4 +4,4 @@
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
 
-конст моя_переменная = 'строка' : строка
+const plusOne = (a: number) => a + 1;

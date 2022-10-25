@@ -18,7 +18,6 @@ jobs:
         curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
         source ~/.bashrc
         nvm install 16.16.0
-        node -v
       
     - name: show folder
       run: ls -la | grep .ts

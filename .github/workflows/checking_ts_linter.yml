@@ -30,6 +30,11 @@ jobs:
       run: npm run lint
       #  nvm install 16.16.0
       
+    - name: Get tag
+      run: |
+        git tag -l
+        echo $?
+      
   build_release:
     runs-on: ubuntu-latest
     needs: [checking]

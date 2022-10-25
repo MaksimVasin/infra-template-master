@@ -20,7 +20,10 @@ jobs:
     - name: Git clone
       uses: actions/checkout@v1
       
-    - name: compiled files
-      run: cd src | ls -la
+    - name: Check ts
+      run: npm run ts
+    
+    - name: Check linter
+      run: npm run lint
       #run: cd src | ls -la | grep .ts | tsc .
       #  nvm install 16.16.0

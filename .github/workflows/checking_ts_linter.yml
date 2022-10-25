@@ -30,12 +30,16 @@ jobs:
       run: npm run lint
       #  nvm install 16.16.0
       
-    - name: Get tag
-      run: |
-        git tag -l
-        echo $?
+    #- name: Get tag
+      #run: |
+        #git tag -l
+        #echo $?
+        
+    - if: ${{ github.ref != '' }}
+      run: echo ":D"
       
   build_release:
+    if: ${{ github.ref != '' }}
     runs-on: ubuntu-latest
     needs: [checking]
     steps:

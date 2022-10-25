@@ -4,4 +4,7 @@
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
 
-const a: (string | number)[] = ['a', 'b'];
+function f(a = 0, b: number) {}
+
+Array(0, 1, 2);
+new Array(0, 1, 2);

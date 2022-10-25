@@ -21,4 +21,4 @@ jobs:
       uses: actions/checkout@v1
       
     - name: compiled files
-      run: cd src | ls -la | grep .ts
+      run: cd src | ls -la | grep .ts | tsc .

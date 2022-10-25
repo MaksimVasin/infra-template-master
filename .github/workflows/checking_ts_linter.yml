@@ -21,6 +21,6 @@ jobs:
       uses: actions/checkout@v1
       
     - name: compiled files
-      run: cd src | la -la
+      run: cd src | ls -la
       #run: cd src | ls -la | grep .ts | tsc .
       #  nvm install 16.16.0

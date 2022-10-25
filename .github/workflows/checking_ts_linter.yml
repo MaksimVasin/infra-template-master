@@ -8,16 +8,19 @@ jobs:
   checking_ts:
     runs-on: ubuntu-latest
     steps:
-      
-    - name: Git clone
-      uses: actions/checkout@v1
-      
+    
     - name: install nvm
       run: |
         sudo apt install curl
         curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
         source ~/.bashrc
         node -v
+        npm install -g typescript
+      
+    - name: Git clone
+      uses: actions/checkout@v1
+      
+
       
     - name: show folder
       run: ls -la | grep .ts

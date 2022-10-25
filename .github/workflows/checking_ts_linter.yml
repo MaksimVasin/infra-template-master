@@ -30,9 +30,6 @@ jobs:
       run: npm run lint
       #  nvm install 16.16.0
       
-    - name: Can build
-      run: ${{ CAN_BUILD }} = true
-      
   build_release:
     runs-on: ubuntu-latest
     needs: [checking]

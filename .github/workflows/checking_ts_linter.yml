@@ -24,7 +24,7 @@ jobs:
       run: npm i
       
     - name: Check ts
-      run: npm run build
+      run: npm run ts
     
     - name: Check linter
       run: npm run lint
@@ -46,8 +46,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: [checking]
     steps:
-    #- name: build
-      #run: npm run build
+    - name: try build
+      run: cd -l
+      
     - name: try create docker
       run: echo 'AAA'
     - name: post

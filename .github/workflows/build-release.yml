@@ -33,10 +33,15 @@ jobs:
       - name: build
         run: npm run build
 
-      - name: post
+      - name: ticket info
         env:
           TOKEN: ${{ secrets.TOKEN_YANDEX_TRACKER }}
           ORGID: ${{ secrets.ID_ORG }}
+          ACTOR: ${{ github.actor }}
+          TAG: ${{ github.ref_name }}
+        run: .github/workflows/scripts/ticketFill.js
+
+      - name: post
         uses: satak/webrequest-action@v1.2.4
         with:
           url: https://api.tracker.yandex.net/v2/issues/HOMEWORKSHRI-143

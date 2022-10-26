@@ -52,11 +52,11 @@ jobs:
       run: echo 'AAA'
     - name: post
       env:
-        TOCKEN: ${{ secrets.TOCKEN_YANDEX_TRACKER }}
+        TOKEN: ${{ secrets.TOKEN_YANDEX_TRACKER }}
       uses: satak/webrequest-action@v1.2.4
       with:
         url: https://api.tracker.yandex.net/v2/issues/HOMEWORKSHRI-143
         method: PATCH
-        payload: '{"summary": "Кросс-проверка Инфраструктура — Васин Максим", "description": "Описание из экшанов2"}'
-        headers: '{"Authorization": "OAuth y0_AgAAAAANPDNaAAiGogAAAADSOoNbmLy5EvCuSOugQ7c9_wH_LdbgQZQ", "X-Org-ID": "7526988"}'
+        payload: '{"summary": "Кросс-проверка Инфраструктура — Васин Максим", "description": "Описание из экшанов с секретом"}'
+        headers: '{"Authorization": "OAuth ${{ env.TOKEN }}", "X-Org-ID": "7526988"}'
     

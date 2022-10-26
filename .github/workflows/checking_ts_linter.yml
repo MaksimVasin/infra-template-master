@@ -37,8 +37,8 @@ jobs:
         
         #- uses: actions-ecosystem/action-get-latest-tag@v1
         #id: get-latest-tag
-        
-    - if: ${{ github.ref != '' && env.CAN_BUILD == false }}
+    - name: Can Build
+      if: ${{ github.ref != '' && env.CAN_BUILD == false }}
       run: echo "$CAN_BUILD"
       
   build_release:

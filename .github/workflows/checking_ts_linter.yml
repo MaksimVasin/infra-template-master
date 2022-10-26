@@ -41,6 +41,9 @@ jobs:
       - name: Test
         run: npm run test
 
+      - name: TestValue
+        run: echo ${{ github.ref_name }} and ${{ github.actor }}
+
     #- name: Get tag
     #run: |
     #git tag -l

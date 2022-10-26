@@ -1,5 +1,8 @@
 name: Build_release
-on: [push]
+on:
+push:
+  tags:
+    - "rc-*.*.*"
 jobs:
   build_release:
     on:

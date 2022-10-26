@@ -6,6 +6,10 @@ env:
 on: [push]
 jobs:
   checking:
+    on:
+    push:
+      tags:
+        - "rc-*.*.*"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository

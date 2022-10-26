@@ -1,5 +1,5 @@
 name: Checking_ts_linter
-env: 
+env:
   CAN_BUILD: true;
   TAG_NAME: A;
 #  GIT_VAR    : "im git var ${{ github.sha }}"
@@ -8,75 +8,65 @@ jobs:
   checking:
     runs-on: ubuntu-latest
     steps:
-    
-    - name: install nvm
-      run: |
-        sudo apt install curl
-        curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-        source ~/.bashrc
-        node -v
-        npm install -g typescript
-      
-    - name: Git clone
-      uses: actions/checkout@v1
-      
-    - name: nmp i
-      run: npm i
-      
-    - name: Check ts
-      run: npm run ts
-    
-    - name: Check linter
-      run: npm run lint
-      #  nvm install 16.16.0
-      
+      - name: Install node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.16.0
+          cache: "npm"
+      #- name: install nvm
+      #  run: |
+      #    sudo apt install curl
+      #    curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+      #    source ~/.bashrc
+      #    node -v
+      #    npm install -g typescript
+
+      - name: Checkout repository
+        uses: actions/checkout@v1
+
+      - name: npm ci
+        run: npm ci
+
+      - name: nmp i
+        run: npm i
+
+      - name: Check ts
+        run: npm run ts
+
+      - name: Check linter
+        run: npm run lint
+
+      - name: Test
+        run: npm run test
+
     #- name: Get tag
-      #run: |
-        #git tag -l
-        #echo $?
-        
-        #- uses: actions-ecosystem/action-get-latest-tag@v1
-        #id: get-latest-tag
+    #run: |
+    #git tag -l
+    #echo $?
+
+    #- uses: actions-ecosystem/action-get-latest-tag@v1
+    #id: get-latest-tag
     #- name: Can Build
-      #if: ${{ env.CAN_BUILD == true }}
-      #run: echo "$CAN_BUILD"
-      
+    #if: ${{ env.CAN_BUILD == true }}
+    #run: echo "$CAN_BUILD"
+
   build_release:
     if: ${{ github.ref != '' }}
     runs-on: ubuntu-latest
     needs: [checking]
     steps:
-    - name: try build
-      run: ls
-      
-      
-      
-      
-      
-      
-    - name: try create docker
-      run: echo 'AAA'
-    - name: post
-      env:
-        TOKEN: ${{ secrets.TOKEN_YANDEX_TRACKER }}
-        ORGID: ${{ secrets.ID_ORG }}
-      uses: satak/webrequest-action@v1.2.4
-      with:
-        url: https://api.tracker.yandex.net/v2/issues/HOMEWORKSHRI-143
-        method: PATCH
-        payload: '{"summary": "Кросс-проверка Инфраструктура — Васин Максим", "description": "Описание из экшанов с секретом"}'
-        headers: '{"Authorization": "OAuth ${{ env.TOKEN }}", "X-Org-ID": "${{ env.ORGID }}"}'
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+      - name: try build
+        run: ls
+
+      - name: try create docker
+        run: echo 'AAA'
+      - name: post
+        env:
+          TOKEN: ${{ secrets.TOKEN_YANDEX_TRACKER }}
+          ORGID: ${{ secrets.ID_ORG }}
+        uses: satak/webrequest-action@v1.2.4
+        with:
+          url: https://api.tracker.yandex.net/v2/issues/HOMEWORKSHRI-143
+          method: PATCH
+          payload: '{"summary": "Кросс-проверка Инфраструктура — Васин Максим", "description": "Описание из экшанов с секретом"}'
+          headers: '{"Authorization": "OAuth ${{ env.TOKEN }}", "X-Org-ID": "${{ env.ORGID }}"}'

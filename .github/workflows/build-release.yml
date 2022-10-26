@@ -1,14 +1,10 @@
 name: Build_release
 on:
-push:
-  tags:
-    - "rc-*.*.*"
+  push:
+    tags:
+      - "rc-*.*.*"
 jobs:
   build_release:
-    on:
-    push:
-      tags:
-        - "rc-*.*.*"
     runs-on: ubuntu-latest
     needs: [checking]
     steps:

@@ -3,13 +3,13 @@ env:
   CAN_BUILD: true;
   TAG_NAME: A;
 #  GIT_VAR    : "im git var ${{ github.sha }}"
-on: [push]
+
+on:
+  push:
+    tags-ignore:
+      - rc-0.0.*
 jobs:
   checking:
-    on:
-    push:
-      tags:
-        - "rc-*.*.*"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository

@@ -38,15 +38,19 @@ jobs:
         #- uses: actions-ecosystem/action-get-latest-tag@v1
         #id: get-latest-tag
         
-    #- if: ${{ github.ref != '' }}
-      #run: ${ github.ref }
+    - if: ${{ github.ref != '' }}
+      run: env.CAN_BUILD = true
       
   build_release:
     if: ${{ github.ref != '' }}
     runs-on: ubuntu-latest
     needs: [checking]
     steps:
-    - name: try post
+    - name: build
+      run: npm run build
+    - name: try create docker
+      run: echo 'AAA'
+    - name: post
       uses: satak/webrequest-action@v1.2.4
       with:
         url: https://api.tracker.yandex.net/v2/issues/HOMEWORKSHRI-143

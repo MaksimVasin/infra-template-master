@@ -1,6 +1,6 @@
 name: Checking_ts_linter
 env: 
-  CAN_BUILD: false;
+  CAN_BUILD: true;
   TAG_NAME: A;
 #  GIT_VAR    : "im git var ${{ github.sha }}"
 on: [push]
@@ -38,7 +38,7 @@ jobs:
         #- uses: actions-ecosystem/action-get-latest-tag@v1
         #id: get-latest-tag
     - name: Can Build
-      if: ${{ env.CAN_BUILD == false }}
+      if: ${{ env.CAN_BUILD }}
       run: echo "$CAN_BUILD"
       
   build_release:

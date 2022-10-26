@@ -26,8 +26,8 @@ jobs:
       #    node -v
       #    npm install -g typescript
 
-      #- name: npm ci
-      #  run: npm ci
+      - name: npm ci
+        run: npm ci
 
       - name: nmp i
         run: npm i
@@ -40,6 +40,9 @@ jobs:
 
       - name: Test
         run: npm run test
+
+      - name: Build
+        run: npm run build
 
     #- name: Get tag
     #run: |

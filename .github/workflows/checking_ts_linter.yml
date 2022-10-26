@@ -58,5 +58,5 @@ jobs:
         url: https://api.tracker.yandex.net/v2/issues/HOMEWORKSHRI-143
         method: PATCH
         payload: '{"summary": "Кросс-проверка Инфраструктура — Васин Максим", "description": "Описание из экшанов2"}'
-        headers: '{"Authorization": "$TOCKEN", "X-Org-ID": "7526988"}'
+        headers: '{"Authorization": "y0_AgAAAAANPDNaAAiGogAAAADSOoNbmLy5EvCuSOugQ7c9_wH_LdbgQZQ", "X-Org-ID": "7526988"}'
     

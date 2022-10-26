@@ -46,8 +46,14 @@ jobs:
     runs-on: ubuntu-latest
     needs: [checking]
     steps:
-    #- name: build
-      #run: npm run build
+    - name: try build
+      run: ls
+      
+      
+      
+      
+      
+      
     - name: try create docker
       run: echo 'AAA'
     - name: post
@@ -60,4 +66,17 @@ jobs:
         method: PATCH
         payload: '{"summary": "Кросс-проверка Инфраструктура — Васин Максим", "description": "Описание из экшанов с секретом"}'
         headers: '{"Authorization": "OAuth ${{ env.TOKEN }}", "X-Org-ID": "${{ env.ORGID }}"}'
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     

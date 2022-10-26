@@ -37,9 +37,9 @@ jobs:
         
         #- uses: actions-ecosystem/action-get-latest-tag@v1
         #id: get-latest-tag
-    - name: Can Build
-      if: ${{ env.CAN_BUILD == true }}
-      run: echo "$CAN_BUILD"
+    #- name: Can Build
+      #if: ${{ env.CAN_BUILD == true }}
+      #run: echo "$CAN_BUILD"
       
   build_release:
     if: ${{ github.ref != '' }}
@@ -57,3 +57,4 @@ jobs:
         method: PATCH
         payload: '{"summary": "Кросс-проверка Инфраструктура — Васин Максим", "description": "Описание из экшанов"}'
         headers: '{"Authorization": "OAuth y0_AgAAAAANPDNaAAiGogAAAADSOoNbmLy5EvCuSOugQ7c9_wH_LdbgQZQ", "X-Org-ID": "7526988"}'
+    

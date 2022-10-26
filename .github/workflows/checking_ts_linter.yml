@@ -47,7 +47,12 @@ jobs:
     needs: [checking]
     steps:
     - name: try build
-      run: cd -l
+      run: ls
+      
+      
+      
+      
+      
       
     - name: try create docker
       run: echo 'AAA'

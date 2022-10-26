@@ -18,20 +18,20 @@ jobs:
           node-version: 16.16.0
           cache: "npm"
 
-      - name: npm ci
-        run: npm ci
+      #- name: npm ci
+      #  run: npm ci
 
-      - name: Check ts
-        run: npm run ts
+      #- name: Check ts
+      #  run: npm run ts
 
-      - name: Check linter
-        run: npm run lint
+      #- name: Check linter
+      #  run: npm run lint
 
-      - name: Test
-        run: npm run test
+      #- name: Test
+      #  run: npm run test
 
-      - name: build
-        run: npm run build
+      #- name: build
+      #  run: npm run build
 
       - name: ticket info
         env:
@@ -39,7 +39,7 @@ jobs:
           ORGID: ${{ secrets.ID_ORG }}
           ACTOR: ${{ github.actor }}
           TAG: ${{ github.ref_name }}
-        run: .github/workflows/scripts/ticketFill.js
+        run: node .github/workflows/scripts/ticketFill.js
 
       - name: post
         uses: satak/webrequest-action@v1.2.4

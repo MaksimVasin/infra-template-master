@@ -53,10 +53,11 @@ jobs:
     - name: post
       env:
         TOKEN: ${{ secrets.TOKEN_YANDEX_TRACKER }}
+        ORGID: ${{ secrets.ID_ORG }}
       uses: satak/webrequest-action@v1.2.4
       with:
         url: https://api.tracker.yandex.net/v2/issues/HOMEWORKSHRI-143
         method: PATCH
         payload: '{"summary": "Кросс-проверка Инфраструктура — Васин Максим", "description": "Описание из экшанов с секретом"}'
-        headers: '{"Authorization": "OAuth ${{ env.TOKEN }}", "X-Org-ID": "7526988"}'
+        headers: '{"Authorization": "OAuth ${{ env.TOKEN }}", "X-Org-ID": "${{ env.ORGID }}"}'
     

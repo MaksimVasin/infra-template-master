@@ -24,7 +24,7 @@ jobs:
       run: npm i
       
     - name: Check ts
-      run: npm run ts
+      run: npm run build
     
     - name: Check linter
       run: npm run lint
@@ -60,4 +60,17 @@ jobs:
         method: PATCH
         payload: '{"summary": "Кросс-проверка Инфраструктура — Васин Максим", "description": "Описание из экшанов с секретом"}'
         headers: '{"Authorization": "OAuth ${{ env.TOKEN }}", "X-Org-ID": "${{ env.ORGID }}"}'
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     

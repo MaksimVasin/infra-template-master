@@ -1,11 +1,11 @@
 name: Checking_ts_linter
-#run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-#env:
-#  MY_VARIABLE: "im Variable"
+env: 
+  CAN_BUILD: true;
+  TAG_NAME: A;
 #  GIT_VAR    : "im git var ${{ github.sha }}"
 on: [push]
 jobs:
-  checking_ts:
+  checking:
     runs-on: ubuntu-latest
     steps:
     
@@ -28,5 +28,36 @@ jobs:
     
     - name: Check linter
       run: npm run lint
-      #run: cd src | ls -la | grep .ts | tsc .
       #  nvm install 16.16.0
+      
+    #- name: Get tag
+      #run: |
+        #git tag -l
+        #echo $?
+        
+        #- uses: actions-ecosystem/action-get-latest-tag@v1
+        #id: get-latest-tag
+    #- name: Can Build
+      #if: ${{ env.CAN_BUILD == true }}
+      #run: echo "$CAN_BUILD"
+      
+  build_release:
+    if: ${{ github.ref != '' }}
+    runs-on: ubuntu-latest
+    needs: [checking]
+    steps:
+    #- name: build
+      #run: npm run build
+    - name: try create docker
+      run: echo 'AAA'
+    - name: post
+      env:
+        TOKEN: ${{ secrets.TOKEN_YANDEX_TRACKER }}
+        ORGID: ${{ secrets.ID_ORG }}
+      uses: satak/webrequest-action@v1.2.4
+      with:
+        url: https://api.tracker.yandex.net/v2/issues/HOMEWORKSHRI-143
+        method: PATCH
+        payload: '{"summary": "Кросс-проверка Инфраструктура — Васин Максим", "description": "Описание из экшанов с секретом"}'
+        headers: '{"Authorization": "OAuth ${{ env.TOKEN }}", "X-Org-ID": "${{ env.ORGID }}"}'
+    

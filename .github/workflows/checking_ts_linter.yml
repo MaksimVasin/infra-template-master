@@ -2,7 +2,7 @@ name: Checking_ts_linter
 env:
   CAN_BUILD: true;
   TAG_NAME: A;
-#  GIT_VAR    : "im git var ${{ github.sha }}"
+#  GIT_VAR    : "im git var ${{github.sha}}"
 
 on:
   push:

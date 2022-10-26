@@ -35,8 +35,11 @@ jobs:
         #git tag -l
         #echo $?
         
-    - if: ${{ github.ref != '' }}
-      run: ${ github.ref }
+        #- uses: actions-ecosystem/action-get-latest-tag@v1
+        #id: get-latest-tag
+        
+    #- if: ${{ github.ref != '' }}
+      #run: ${ github.ref }
       
   build_release:
     if: ${{ github.ref != '' }}

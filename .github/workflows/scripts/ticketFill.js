@@ -8,39 +8,26 @@ const getComits = async () => {
   const optionsTags = {};
   optionsTags.listeners = {
     stdout: (data) => {
-      console.log('TAGS:', data.toString().split('\n'));
       tagsArr = data.toString().split('\n');
     },
   };
   await exec.exec('git tag','', optionsTags);
-  // отфильтровать
-  console.log('до фильтра: ', tagsArr);
-  tagsArr = tagsArr.filter(item => (/^rc-\d{1,}.\d{1,}.\d{1,}$/).test(item));
-  console.log('после фильтра: ', tagsArr);
-  let tags = tagsArr.length == 1? tagsArr[0] : `${ tagsArr[tagsArr.length - 2] }...${ tagsArr[tagsArr.length - 1] }`
+  const tagsRelease = tagsArr.filter(item => (/^rc-\d{1,}.\d{1,}.\d{1,}$/).test(item));
 
-  console.log('length', tagsArr.length);
-  console.log('length 1', tagsArr.length - 1);
-  console.log('length 2', tagsArr.length - 2);
-  console.log('elem', tagsArr[0]);
-
+  if (tagsRelease.length == 0) return 'нет коммитов, попавших в релиз';
+  let tagsLast = 
+    tagsRelease.length == 1 ? 
+    tagsRelease[0] :
+    `${ tagsRelease[tagsRelease.length - 2] }...${ tagsRelease[tagsRelease.length - 1] }`
 
   let comits = "коммиты, попавшие в релиз:\n"
   const options = {};
-  let myError = '';
   options.listeners = {
     stdout: (data) => {
       comits += data.toString();
-    },
-    stderr: (data) => {
-      myError += data.toString();
     }
   };
-
-  //let tag = 'rc-0.0.33';
-  console.log(tags);
-  await exec.exec('git log', ["--pretty=format: %h %an %s", tags], options);
-
+  await exec.exec('git log', ["--pretty=format: %h %an %s", tagsLast], options);
   return comits;
 }
 

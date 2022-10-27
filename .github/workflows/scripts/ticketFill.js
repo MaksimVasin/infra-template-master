@@ -1,4 +1,5 @@
 import fetch from "node-fetch";
+import exec from "@actions/exec";
 
 const {TOKEN, ORGID, ACTOR, TAG} = process.env;
 

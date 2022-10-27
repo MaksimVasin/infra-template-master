@@ -36,6 +36,7 @@ jobs:
         run: |
           cd .github/workflows/scripts
           npm install node-fetch
+          npm i @actions/exec
       - name: ticket info
         env:
           TOKEN: ${{ secrets.TOKEN_YANDEX_TRACKER }}

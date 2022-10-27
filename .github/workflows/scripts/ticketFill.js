@@ -5,8 +5,20 @@ const {TOKEN, ORGID, ACTOR, TAG} = process.env;
 
 const getComits = async () => {
   let comits = "коммиты, попавшие в релиз:\n"
-  comits+="<хеш коммита1> <автор коммита> <описание коммита>\n";
-  comits+="<хеш коммита2> <автор коммита> <описание коммита>\n";
+
+  const options = {};
+  let myError = '';
+  options.listeners = {
+    stdout: (data) => {
+      comits += data.toString();
+    },
+    stderr: (data) => {
+      myError += data.toString();
+    }
+  };
+
+  await exec('git log', ['--pretty=format:"%h %an %s"'], options);
+
   return comits;
 }
 

@@ -42,7 +42,7 @@ const ticketFill = async () => {
     },
     body: JSON.stringify({
       summary: `Релиз ${ TAG } - ${ new Date().toLocaleDateString() }`,
-      description: `ответсвтенный за релиз ${ ACTOR }\n${ newComits }`
+      description: `Ответсвтенный за релиз ${ ACTOR }\n${ newComits }`
     })
   });
 }

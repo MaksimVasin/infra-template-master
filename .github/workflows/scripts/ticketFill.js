@@ -14,13 +14,13 @@ const getComits = async () => {
   await exec.exec('git tag','', optionsTags);
   const tagsRelease = tagsArr.filter(item => (/^rc-0.0.\d{1,}$/).test(item));
 
-  if (tagsRelease.length == 0) return 'Нет коммитов, попавших в релиз.';
+  if (tagsRelease.length == 0) return 'нет коммитов, попавших в релиз.';
   let tagsLast = 
     tagsRelease.length == 1 ? 
     tagsRelease[0] :
     `${ tagsRelease[tagsRelease.length - 2] }...${ tagsRelease[tagsRelease.length - 1] }`
 
-  let comits = "Коммиты, попавшие в релиз:\n"
+  let comits = "коммиты, попавшие в релиз:\n"
   const options = {};
   options.listeners = {
     stdout: (data) => {

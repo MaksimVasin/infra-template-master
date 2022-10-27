@@ -3,8 +3,8 @@ import fetch from "node-fetch";
 const {TOKEN, ORGID, ACTOR, TAG} = process.env;
 
 const getComits = async () => {
-  return `<хеш коммита1> <автор коммита> <описание коммита>
-  <хеш коммита2> <автор коммита> <описание коммита>`
+  return `<хеш коммита1> <автор коммита1> <описание коммита1>
+  <хеш коммита2> <автор коммита2> <описание коммита2>`
 }
 
 const ticketFill = async () => {

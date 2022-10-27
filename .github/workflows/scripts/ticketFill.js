@@ -30,6 +30,7 @@ const getComits = async () => {
   };
 
   //let tag = 'rc-0.0.33';
+  console.log(tags);
   await exec.exec('git log', ["--pretty=format: %h %an %s", tags], options);
 
   return comits;

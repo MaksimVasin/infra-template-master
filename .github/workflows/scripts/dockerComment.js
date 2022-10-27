@@ -3,6 +3,7 @@ import fetch from "node-fetch";
 const {TOKEN, ORGID, TAG, TICKET_ID} = process.env;
 
 const ticketFill = async () => {
+  console.log('Создание комментария');
   fetch(`https://api.tracker.yandex.net/v2/issues/${TICKET_ID}/comments`, {
     method: 'POST',
     headers: {
@@ -16,4 +17,4 @@ const ticketFill = async () => {
   });
 }
 
-ticketFill();
+ticketFill().then(() => { console.log('Комментарий об образа создан') });

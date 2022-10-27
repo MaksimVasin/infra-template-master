@@ -4,6 +4,7 @@ import fetch from "node-fetch";
 const {TOKEN, ORGID, ACTOR, TAG, TICKET_ID} = process.env;
 
 const getComits = async () => {
+  console.log('Получение списка тегов');
   let tagsArr = [];
   const optionsTags = {};
   optionsTags.listeners = {
@@ -20,6 +21,7 @@ const getComits = async () => {
     tagsRelease[0] :
     `${ tagsRelease[tagsRelease.length - 2] }...${ tagsRelease[tagsRelease.length - 1] }`
 
+  console.log('Получение коммитов по тегам(тегу)');
   let comits = "Коммиты, попавшие в релиз:\n"
   const options = {};
   options.listeners = {
@@ -32,6 +34,7 @@ const getComits = async () => {
 }
 
 const ticketFill = async () => {
+  console.log('Обновление информации в тикете');
   const newComits = await getComits();
   fetch(`https://api.tracker.yandex.net/v2/issues/${TICKET_ID}`, {
     method: 'PATCH',
@@ -47,4 +50,4 @@ const ticketFill = async () => {
   });
 }
 
-ticketFill();
+ticketFill().then(() => { console.log('Тикет обновлен') });

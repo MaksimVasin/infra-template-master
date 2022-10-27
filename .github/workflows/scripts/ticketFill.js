@@ -19,10 +19,10 @@ const ticketFill = async () => {
       "X-Org-ID": ORGID,
       'Content-Type': 'application/json'
     },
-    body: `{
-      "summary": "Релиз ${ TAG } - ${ new Date().toLocaleDateString() }", 
-      "description": "ответсвтенный за рерлиз ${ ACTOR }\nВторая строчка"
-    }`
+    body: JSON.stringify({
+      summary: `Релиз ${ TAG } - ${ new Date().toLocaleDateString() }`,
+      description: `ответсвтенный за рерлиз ${ ACTOR }\nВтораястрочка`
+    })
   });
 }
 

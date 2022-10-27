@@ -21,7 +21,7 @@ const ticketFill = async () => {
     },
     body: `{
       "summary": "Релиз ${ TAG } - ${ new Date().toLocaleDateString() }", 
-      "description": "ответсвтенный за рерлиз: ${ ACTOR }Вторая строчка"
+      "description": "ответсвтенный за рерлиз: ${ ACTOR }\nВторая строчка"
     }`
   });
 }

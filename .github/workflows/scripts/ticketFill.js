@@ -13,7 +13,8 @@ const getComits = async () => {
   };
   await exec.exec('git tag','', optionsTags);
   // отфильтровать
-  console.log(tagsArr);
+  tagsArr = tagsArr.filter(item => (/^rc-\d{1,}.\d{1,}.\d{1,}$/).test(item));
+  let tags = tagsArr.length == 1? tagsArr[0] : `${ tagsArr[tagsArr.length-2] }...${tagsArr.length-1}`
 
 
   let comits = "коммиты, попавшие в релиз:\n"
@@ -28,8 +29,8 @@ const getComits = async () => {
     }
   };
 
-  let tag = 'rc-0.0.33';
-  await exec.exec('git log', ["--pretty=format: %h %an %s", 'rc-0.0.33...rc-0.0.34'], options);
+  //let tag = 'rc-0.0.33';
+  await exec.exec('git log', ["--pretty=format: %h %an %s", tags], options);
 
   return comits;
 }

@@ -17,7 +17,8 @@ const getComits = async () => {
     }
   };
 
-  await exec.exec('git log', ["--pretty=format: %h %an %s", 'rc-0.0.31'], options);
+  let tag = 'rc-0.0.32';
+  await exec.exec('git log', ["--pretty=format: %h %an %s", tag], options);
 
   return comits;
 }

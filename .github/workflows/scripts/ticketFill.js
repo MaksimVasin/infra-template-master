@@ -11,7 +11,7 @@ const getComits = async () => {
       tagsArr.push(data.toString());
     },
   };
-  await exec.exec('git tag',[], optionsTags);
+  await exec.exec('git tag','', optionsTags);
   // отфильтровать
   console.log(tagsArr);
 

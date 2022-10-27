@@ -20,7 +20,7 @@ const getComits = async () => {
   let tags = tagsArr.length == 1? tagsArr[0] : `${ tagsArr[tagsArr.length - 2] }...${ tagsArr[tagsArr.length - 1] }`
 
   console.log('length', tagsArr.length);
-  console.log('length - 1', tagsArr.length - 1);
+  console.log('length1', tagsArr.length - 1);
   console.log('length - 2', tagsArr.length - 2);
   console.log('elem', tagsArr[0]);
 

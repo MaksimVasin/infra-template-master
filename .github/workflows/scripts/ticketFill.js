@@ -33,7 +33,7 @@ const getComits = async () => {
 
 const ticketFill = async () => {
   const newComits = await getComits();
-  fetch(`https://api.tracker.yandex.net/v2/issues/${TICKET_ID}`, {
+  fetch('https://api.tracker.yandex.net/v2/issues/HOMEWORKSHRI-143', {
     method: 'PATCH',
     headers: {
       "Authorization": `OAuth ${TOKEN}`,
@@ -42,7 +42,7 @@ const ticketFill = async () => {
     },
     body: JSON.stringify({
       summary: `Релиз ${ TAG } - ${ new Date().toLocaleDateString() }`,
-      description: `Ответсвтенный за релиз ${ ACTOR }\n${ newComits }`
+      description: `ответсвтенный за рерлиз ${ ACTOR }\n${ newComits }`
     })
   });
 }

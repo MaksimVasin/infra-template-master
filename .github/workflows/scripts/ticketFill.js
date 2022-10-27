@@ -1,7 +1,7 @@
 import exec from "@actions/exec";
 import fetch from "node-fetch";
 
-const {TOKEN, ORGID, ACTOR, TAG, TICKET_ID} = process.env;
+const {TOKEN, ORGID, ACTOR, TAG} = process.env;
 
 const getComits = async () => {
   let tagsArr = [];

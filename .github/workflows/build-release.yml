@@ -47,7 +47,11 @@ jobs:
 
       - name: create docker image
         env:
+          TOKEN: ${{ secrets.TOKEN_YANDEX_TRACKER }}
+          ORGID: ${{ secrets.ID_ORG }}
+          ACTOR: ${{ github.actor }}
           TAG: ${{ github.ref_name }}
         run: |
           docker build . --tag $TAG
           docker images
+          node .github/workflows/scripts/dockerComment.js

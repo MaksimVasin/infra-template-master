@@ -16,6 +16,11 @@ const getComits = async () => {
   tagsArr = tagsArr.filter(item => (/^rc-\d{1,}.\d{1,}.\d{1,}$/).test(item));
   let tags = tagsArr.length == 1? tagsArr[0] : `${ tagsArr[tagsArr.length-2] }...${tagsArr.length-1}`
 
+  console.log('length', tagsArr.length);
+  console.log('length - 1', tagsArr.length - 1);
+  console.log('length - 2', tagsArr.length - 2);
+  console.log('elem', tagsArr[0]);
+
 
   let comits = "коммиты, попавшие в релиз:\n"
   const options = {};

@@ -39,7 +39,10 @@ jobs:
           ORGID: ${{ secrets.ID_ORG }}
           ACTOR: ${{ github.actor }}
           TAG: ${{ github.ref_name }}
-        run: node .github/workflows/scripts/ticketFill.js
+        run: |
+        cd .github/workflows/scripts
+        npm install node-fetch
+        node .github/workflows/scripts/ticketFill.js
 
       #- name: post
       #  uses: satak/webrequest-action@v1.2.4

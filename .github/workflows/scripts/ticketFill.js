@@ -3,6 +3,7 @@ import fetch from "node-fetch";
 const {TOKEN, ORGID, ACTOR, TAG} = process.env;
 
 const ticketFill = async () => {
+  console.log('test');
   fetch('https://api.tracker.yandex.net/v2/issues/HOMEWORKSHRI-143', {
     method: 'PATCH',
     headers: {

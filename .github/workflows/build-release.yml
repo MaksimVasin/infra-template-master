@@ -2,7 +2,7 @@ name: Build_release
 on:
   push:
     tags:
-      - "rc-*.*.*"
+      - "rc-0.0.*"
 jobs:
   build_release:
     runs-on: ubuntu-latest

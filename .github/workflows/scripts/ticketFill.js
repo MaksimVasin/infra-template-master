@@ -12,7 +12,7 @@ const getComits = async () => {
     },
   };
   await exec.exec('git tag','', optionsTags);
-  const tagsRelease = tagsArr.filter(item => (/^rc-\d{1,}.\d{1,}.\d{1,}$/).test(item));
+  const tagsRelease = tagsArr.filter(item => (/^rc-0.0.\d{1,}$/).test(item));
 
   if (tagsRelease.length == 0) return 'нет коммитов, попавших в релиз.';
   let tagsLast = 

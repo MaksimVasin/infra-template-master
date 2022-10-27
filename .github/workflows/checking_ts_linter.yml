@@ -9,7 +9,7 @@ on:
     branches:
       - "**"
     tags-ignore:
-      - rc-*.*.*
+      - rc-0.0.*
 jobs:
   checking:
     runs-on: ubuntu-latest

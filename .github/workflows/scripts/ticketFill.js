@@ -8,7 +8,7 @@ const getComits = async () => {
 }
 
 const ticketFill = async () => {
-  const newComits = await getComits();
+  //const newComits = await getComits();
   fetch('https://api.tracker.yandex.net/v2/issues/HOMEWORKSHRI-143', {
     method: 'PATCH',
     headers: {
@@ -20,7 +20,7 @@ const ticketFill = async () => {
       "summary": "Релиз ${ TAG } - ${ new Date().toLocaleDateString() }", 
       "description": "ответственный за релиз ${ ACTOR }
       коммиты, попавшие в релиз:
-      ${ newComits }"
+      <хеш коммита> <автор коммита> <описание коммита>
     }`
   });
 }

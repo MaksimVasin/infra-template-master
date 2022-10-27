@@ -47,5 +47,5 @@ jobs:
 
       - name: create docker image
         env:
-          TAG: ${{ gitgub.ref_name }}
+          TAG: ${{ github.ref_name }}
         run: docker build . --tag $TAG

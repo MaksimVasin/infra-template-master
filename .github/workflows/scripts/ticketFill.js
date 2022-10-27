@@ -8,6 +8,7 @@ const getComits = async () => {
   const optionsTags = {};
   optionsTags.listeners = {
     stdout: (data) => {
+      console.log('data',data);
       tagsArr.push(data.toString());
     },
   };

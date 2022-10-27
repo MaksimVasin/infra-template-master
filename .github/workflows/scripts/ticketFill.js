@@ -4,15 +4,16 @@ import exec from "@actions/exec";
 const {TOKEN, ORGID, ACTOR, TAG} = process.env;
 
 const getComits = async () => {
-  let tags = [];
+  let tagsArr = [];
   const optionsTags = {};
   optionsTags.listeners = {
     stdout: (data) => {
-      tags.push(data.toString());
+      tagsArr.push(data.toString());
     },
   };
-  await exec.exec('git tag', optionsTags);
-  console.log(tags);
+  await exec.exec('git tag',[], optionsTags);
+  // отфильтровать
+  console.log(tagsArr);
 
 
   let comits = "коммиты, попавшие в релиз:\n"

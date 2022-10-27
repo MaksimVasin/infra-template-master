@@ -10,7 +10,7 @@ const getComits = async () => {
 }
 
 const ticketFill = async () => {
-  const newComits = await getComits();
+  //const newComits = await getComits();
   console.log('test');
   fetch('https://api.tracker.yandex.net/v2/issues/HOMEWORKSHRI-143', {
     method: 'PATCH',
@@ -21,7 +21,7 @@ const ticketFill = async () => {
     },
     body: `{
       "summary": "Релиз ${ TAG } - ${ new Date().toLocaleDateString() }", 
-      "description": "ответсвтенный за рерлиз: ${ ACTOR }\n${ newComits }"
+      "description": "ответсвтенный за рерлиз: ${ ACTOR }\nВторая строчка"
     }`
   });
 }

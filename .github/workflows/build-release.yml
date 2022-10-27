@@ -44,3 +44,8 @@ jobs:
           ACTOR: ${{ github.actor }}
           TAG: ${{ github.ref_name }}
         run: node .github/workflows/scripts/ticketFill.js
+
+      - name: create docker image
+        env:
+          TAG: ${{ gitgub.ref_name }}
+        run: docker build . --tag $TAG

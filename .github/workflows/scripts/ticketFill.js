@@ -1,5 +1,5 @@
-import fetch from "node-fetch";
 import exec from "@actions/exec";
+import fetch from "node-fetch";
 
 const {TOKEN, ORGID, ACTOR, TAG} = process.env;
 
@@ -33,7 +33,6 @@ const getComits = async () => {
 
 const ticketFill = async () => {
   const newComits = await getComits();
-  console.log('test');
   fetch('https://api.tracker.yandex.net/v2/issues/HOMEWORKSHRI-143', {
     method: 'PATCH',
     headers: {

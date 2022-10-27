@@ -9,7 +9,7 @@ const getComits = async () => {
   optionsTags.listeners = {
     stdout: (data) => {
       console.log('TAGS:', data.toString().split('\n'));
-      tagsArr = data.toString();
+      tagsArr = data.toString().split('\n');
     },
   };
   await exec.exec('git tag','', optionsTags);

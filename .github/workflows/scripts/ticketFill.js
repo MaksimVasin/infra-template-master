@@ -1,7 +1,7 @@
 import exec from "@actions/exec";
 import fetch from "node-fetch";
 
-const {TOKEN, ORGID, ACTOR, TAG} = process.env;
+const {TOKEN, ORGID, ACTOR, TAG, TICKET_ID} = process.env;
 
 const getComits = async () => {
   let tagsArr = [];
@@ -33,7 +33,7 @@ const getComits = async () => {
 
 const ticketFill = async () => {
   const newComits = await getComits();
-  fetch('https://api.tracker.yandex.net/v2/issues/HOMEWORKSHRI-143', {
+  fetch(`https://api.tracker.yandex.net/v2/issues/${TICKET_ID}`, {
     method: 'PATCH',
     headers: {
       "Authorization": `OAuth ${TOKEN}`,
@@ -42,7 +42,7 @@ const ticketFill = async () => {
     },
     body: JSON.stringify({
       summary: `Релиз ${ TAG } - ${ new Date().toLocaleDateString() }`,
-      description: `ответсвтенный за рерлиз ${ ACTOR }\n${ newComits }`
+      description: `ответсвтенный за релиз ${ ACTOR }\n${ newComits }`
     })
   });
 }

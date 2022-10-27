@@ -1,9 +1,9 @@
 import fetch from "node-fetch";
 
-const {TOKEN, ORGID, TAG} = process.env;
+const {TOKEN, ORGID, TAG, TICKET_ID} = process.env;
 
 const ticketFill = async () => {
-  fetch('https://api.tracker.yandex.net/v2/issues/HOMEWORKSHRI-143/comments', {
+  fetch(`https://api.tracker.yandex.net/v2/issues/${TICKET_ID}/comments`, {
     method: 'POST',
     headers: {
       "Authorization": `OAuth ${TOKEN}`,
@@ -11,7 +11,7 @@ const ticketFill = async () => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      text: `Собрали образ в тегом ${ TAG }`,
+      text: `Собрали образ с тегом ${ TAG }`,
     })
   });
 }

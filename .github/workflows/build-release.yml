@@ -43,6 +43,7 @@ jobs:
           ORGID: ${{ secrets.ID_ORG }}
           ACTOR: ${{ github.actor }}
           TAG: ${{ github.ref_name }}
+          TICKET_ID: HOMEWORKSHRI-143
         run: node .github/workflows/scripts/ticketFill.js
 
       - name: create docker image
@@ -51,6 +52,7 @@ jobs:
           ORGID: ${{ secrets.ID_ORG }}
           ACTOR: ${{ github.actor }}
           TAG: ${{ github.ref_name }}
+          TICKET_ID: HOMEWORKSHRI-143
         run: |
           docker build . --tag $TAG
           docker images

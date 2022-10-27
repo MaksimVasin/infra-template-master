@@ -18,8 +18,8 @@ jobs:
           node-version: 16.16.0
           cache: "npm"
 
-      #- name: npm ci
-      #  run: npm ci
+      - name: npm ci
+        run: npm ci
 
       #- name: Check ts
       #  run: npm run ts
@@ -30,8 +30,8 @@ jobs:
       #- name: Test
       #  run: npm run test
 
-      #- name: build
-      #  run: npm run build
+      - name: build
+        run: npm run build
       - name: install fetch
         run: |
           cd .github/workflows/scripts

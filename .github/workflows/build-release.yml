@@ -32,17 +32,17 @@ jobs:
 
       #- name: build
       #  run: npm run build
-
+      - name: install fetch
+        run: |
+          cd .github/workflows/scripts
+          npm install node-fetch
       - name: ticket info
         env:
           TOKEN: ${{ secrets.TOKEN_YANDEX_TRACKER }}
           ORGID: ${{ secrets.ID_ORG }}
           ACTOR: ${{ github.actor }}
           TAG: ${{ github.ref_name }}
-        run: |
-        cd .github/workflows/scripts
-        npm install node-fetch
-        node .github/workflows/scripts/ticketFill.js
+        run: node .github/workflows/scripts/ticketFill.js
 
       #- name: post
       #  uses: satak/webrequest-action@v1.2.4

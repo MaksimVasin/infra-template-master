@@ -48,4 +48,6 @@ jobs:
       - name: create docker image
         env:
           TAG: ${{ github.ref_name }}
-        run: docker build . --tag $TAG
+        run: |
+          docker build . --tag $TAG
+          docker images

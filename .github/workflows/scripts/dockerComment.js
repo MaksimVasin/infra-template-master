@@ -1,6 +1,6 @@
 import fetch from "node-fetch";
 
-const {TAG} = process.env;
+const {TOKEN, ORGID, TAG} = process.env;
 
 const ticketFill = async () => {
   fetch('https://api.tracker.yandex.net/v2/issues/HOMEWORKSHRI-143/comments', {

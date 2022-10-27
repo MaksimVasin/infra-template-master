@@ -11,7 +11,7 @@ const ticketFill = async () => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      text: `Собрали образ в тегом ${ TAG }`,
+      text: `Собрали образ с тегом ${ TAG }`,
     })
   });
 }

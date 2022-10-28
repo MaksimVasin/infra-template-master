@@ -19,16 +19,24 @@ jobs:
           cache: "npm"
 
       - name: npm ci
-        run: npm ci
+        run: |
+          npm ci
+          echo Подтягивание зависимостей
 
       - name: Check ts
-        run: npm run ts
+        run: |
+          npm run ts
+          echo Проверка TypeScript
 
       - name: Check linter
-        run: npm run lint
+        run: |
+          npm run lint
+          echo Провека линтером
 
       - name: Test
-        run: npm run test
+        run: |
+          npm run test
+          echo Запуск тестов
 
       - name: build
         run: npm run build
@@ -37,6 +45,7 @@ jobs:
           cd .github/workflows/scripts
           npm install node-fetch
           npm i @actions/exec
+          echo Установка пакетов fetch и exec
       - name: ticket info
         env:
           TOKEN: ${{ secrets.TOKEN_YANDEX_TRACKER }}
@@ -44,7 +53,9 @@ jobs:
           ACTOR: ${{ github.actor }}
           TAG: ${{ github.ref_name }}
           TICKET_ID: HOMEWORKSHRI-143
-        run: node .github/workflows/scripts/ticketFill.js
+        run: |
+          node .github/workflows/scripts/ticketFill.js
+          echo Добавление информации о тикете
 
       - name: create docker image
         env:
@@ -54,6 +65,8 @@ jobs:
           TAG: ${{ github.ref_name }}
           TICKET_ID: HOMEWORKSHRI-143
         run: |
+          echo Создание образа
           docker build . --tag $TAG
           docker images
+          echo Добавление комментария об образе
           node .github/workflows/scripts/dockerComment.js

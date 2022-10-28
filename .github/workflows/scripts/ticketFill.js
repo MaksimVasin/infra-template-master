@@ -50,4 +50,4 @@ const ticketFill = async () => {
   });
 }
 
-ticketFill().then(() => { console.log('Тикет обновлен') });
+ticketFill().then(() => { console.log('\nТикет обновлен') });
